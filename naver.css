@@ -1,3 +1,11 @@
+/*
+   - float으로 인한 전체 ui가 이동 된 경우는 both 처리 (header-top)
+   - div에 width 값을 주고 그 안에 inline-block으로 요소들을 정리하다 문제는 float으로
+   - float으로 인한 문제는 상위 부모에게 inline-block 처리 및 width 값 추가 (마진 상쇄) -  <main> ~ <div id="main-centered" class="center-align">
+   - inline-block 간 세로 margin 문제는 vertical-align
+   - inline-block 간 가로 margin 문제는 float left처리
+   - 마진 처리시 부모로 마진 처리 후 자식 마진은 없앤다.
+*/
 * {
   box-sizing: border-box;
 }
@@ -20,6 +28,10 @@ h6 {
 
 .inline-block {
   display: inline-block;
+}
+
+.float-left {
+  float: left;
 }
 
 .relative {
@@ -157,11 +169,11 @@ nav ul {
   list-style: none;
 }
 
-nav li {
+#nav-menu li {
   display: inline-block;
 }
 
-nav li span:first-child {
+#nav-menu li span:first-child {
   height: 16px;
   display: inline-block;
   background-image: url(./sp_nav.png);
@@ -169,87 +181,87 @@ nav li span:first-child {
   margin-left: 10px;
 }
 
-nav li:first-child span:first-child {
+#nav-menu li:first-child span:first-child {
   width: 25px;
   background-position: 0 -285px;
   margin-left: 0;
 }
 
-nav li:nth-child(2) span:first-child {
+#nav-menu li:nth-child(2) span:first-child {
   width: 27px;
   background-position: -279px -52px;
 }
 
-nav li:nth-child(3) span:first-child {
+#nav-menu li:nth-child(3) span:first-child {
   width: 40px;
   background-position: -100px -182px;
 }
 
-nav li:nth-child(4) span:first-child {
+#nav-menu li:nth-child(4) span:first-child {
   width: 40px;
   background-position: -101px -156px;
 }
 
-nav li:nth-child(5) span:first-child {
+#nav-menu li:nth-child(5) span:first-child {
   width: 26px;
   background-position: -279px -156px;
 }
 
-nav li:nth-child(6) span:first-child {
+#nav-menu li:nth-child(6) span:first-child {
   width: 25px;
   background-position: -70px -285px;
 }
 
-nav li:nth-child(7) span:first-child {
+#nav-menu li:nth-child(7) span:first-child {
   width: 35px;
   background-position: -125px -130px;
 }
 
-nav li:nth-child(8) span:first-child {
+#nav-menu li:nth-child(8) span:first-child {
   width: 26px;
   background-position: -279px -208px;
 }
 
-nav li:nth-child(9) span:first-child {
+#nav-menu li:nth-child(9) span:first-child {
   width: 26px;
   background-position: -128px -104px;
 }
 
-nav li:nth-child(10) span:first-child {
+#nav-menu li:nth-child(10) span:first-child {
   width: 26px;
   background-position: -36px -259px;
 }
-nav li:nth-child(11) span:first-child {
+#nav-menu li:nth-child(11) span:first-child {
   width: 39px;
   background-position: -151px -156px;
 }
 
-nav li:nth-child(12) span:first-child {
+#nav-menu li:nth-child(12) span:first-child {
   width: 26px;
   background-position: -279px -130px;
 }
 
-nav li:nth-child(13) span:first-child {
+#nav-menu li:nth-child(13) span:first-child {
   width: 26px;
   background-position: -234px -233px;
 }
 
-nav li:nth-child(14) span:first-child {
+#nav-menu li:nth-child(14) span:first-child {
   width: 26px;
   background-position: -72px -259px;
 }
 
-nav li:nth-child(15) span:first-child {
+#nav-menu li:nth-child(15) span:first-child {
   width: 13px;
   background-position: -140px -78px;
 }
 
-nav li:nth-child(16) span:first-child {
+#nav-menu li:nth-child(16) span:first-child {
   width: 26px;
   background-position: -279px 0;
 }
 
-nav li.more:first-child span:first-child {
+#nav-menu li.more:first-child span:first-child {
   width: 55px;
   background-position: 0 -104px;
 }
@@ -264,10 +276,78 @@ nav li.more:first-child span:first-child {
 
 #search-ranking {
   position: absolute;
-  top: 16px;
-  right: 100px;
+  top: 14px;
+  right: 0;
+  width: 198px;
+  height: 20px;
+}
+#ranking-box {
+  z-index: 10;
+} 
+#ranking-top {
+  margin-bottom: 10px;
+}
+#ranking-top-content {
+  display: inline-block;
+}
+#ranking-top-age-current {
+  display: inline-block;
+  position: absolute;
+  top: 11;
+  right: 20px;
+  font-size: 12px;
 }
 
+#ranking-top-age-current a{
+  text-decoration: none;
+  color: #888;
+}
+
+#ranking-top-age-current a:nth-child(1){
+  margin-right: 15px;
+}
+
+#ranking-button-top10-20 button {
+  border: 1px solid #aaa;
+  width: 50%;
+  background: rgba(0, 0, 0, 0);
+  font-size: 12px;
+  border-radius: 1px;
+  margin-bottom: 10px;
+}
+#btn-top10 button{
+  color: red;
+  background: #555;
+  overflow: hidden;
+}
+
+#ranking-button-top10-20 button:hover {
+    color: red;
+    background: #555;
+    overflow: hidden;
+}
+#btn-top10, #btn-top20{
+  margin: -3px;
+}
+/* #search-ranking:hover ul{
+  display: inline-block;
+} */
+#search-ranking ul {
+  /* display: none; */
+  display: inline-block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 332px;
+  height: 334px;
+  border: 1px solid #aaa;
+  padding: 17px;
+  background: #fff;
+  
+  position: absolute;
+  /* top: -15px;
+  right: 0; */
+}
 #rank-number {
   margin-top: -9px;
   color: #00ab33;
@@ -290,6 +370,8 @@ main {
 #main-first-block {
   display: inline-block;
   width: 100%;
+  
+  vertical-align: top;  /*  inline-block 세로간 벌어짐 간격 조정 */
 }
 
 #main-a1d {
@@ -310,11 +392,18 @@ main {
   margin-bottom: 8px;
 }
 
-#main-second-block .inline-block:first-child {
-  width: 740px;
+#main-second-block {
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 8px;
 }
 
-#main-second-block .inline-block:last-child {
+#main-second-block .float-left:first-child {
+  width: 740px;
+  margin-right: 8px;
+}
+
+#main-second-block .float-left:last-child {
   width: 332px;
   vertical-align: top;
 }
@@ -324,7 +413,7 @@ main {
   width: 740px;
   height: 46px;
   background-color: #fff;
-  margin-right: 8px;
+  
   margin-bottom: 8px;
 }
 
@@ -339,7 +428,7 @@ main {
   height: 246px;
   background-color: #fff;
   margin-right: 8px;
-  margin-bottom: 8px;
+  vertical-align: top;
 }
 
 #main-newsstand h3 {
@@ -348,6 +437,7 @@ main {
 }
 
 #main-newsstand ul {
+  display: inline-block;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -359,10 +449,11 @@ main {
   transform: translateY(-50%);
 }
 
-/* 뉴스스탠드 정렬 */
+/* 뉴스스탠드 여러개 정렬 float 기때문에 ul inline-block으로 감싸야함*/
 #main-newsstand li {
   float: left;
-  width: 123px;
+  /* width: 123px; */
+  width: calc(100% / 6);
   height: 67px;
   border-right: 1px solid #f1f3f6;
   border-bottom: 1px solid #f1f3f6;
@@ -376,6 +467,7 @@ main {
   background-color: #fff;
 
   margin-bottom: 8px;
+  vertical-align: top;
 }
 
 #main-second-a1d {
@@ -383,14 +475,13 @@ main {
   width: 332px;
   height: 150px;
   background-color: #555;
-
-  margin-bottom: 8px;
+  vertical-align: top;
 }
 
 #main-category {
   float: left;
   width: 740px;
-  height: 837px;
+  height: 882px;
   background-color: #fff;
   margin-right: 8px;
   margin-bottom: 8px;
@@ -398,17 +489,24 @@ main {
 
 #main-shopping {
   float: left;
-  width: 332px;
-  height: 837px;
+  width: 330px;
+  height: 882px;
   background-color: #fff;
 
   margin-bottom: 8px;
 }
 
+#main-shopping iframe{
+  width: 100%;
+  height: 100%;
+}
+
+
 #main-third-block,
 #main-fourth-block {
   display: inline-block;
   width: 100%;
+  vertical-align: top;
 }
 
 #main-event {
@@ -422,7 +520,7 @@ main {
 
 #main-third-a1d {
   float: left;
-  width: 332px;
+  width: 330px;
   height: 130px;
   background-color: #555;
 }
