@@ -6,34 +6,6 @@
    - inline-block 간 가로 margin 문제는 float left처리
    - 마진 처리시 부모로 마진 처리 후 자식 마진은 없앤다.
 */
-* {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Dotum, "돋움", Helvetica, "Apple SD Gothic Neo", sans-serif;
-}
-
-h1,
-h1,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-}
-
-.inline-block {
-  display: inline-block;
-}
-
-.float-left {
-  float: left;
-}
-
 .relative {
   position: relative;
 }
@@ -116,7 +88,6 @@ header {
 }
 
 #header-search fieldset button {
-  cursor: pointer;
   width: 49px;
   height: 49px;
   border: none;
@@ -283,7 +254,7 @@ nav ul {
 }
 #ranking-box {
   z-index: 10;
-} 
+}
 #ranking-top {
   margin-bottom: 10px;
 }
@@ -298,12 +269,12 @@ nav ul {
   font-size: 12px;
 }
 
-#ranking-top-age-current a{
+#ranking-top-age-current a {
   text-decoration: none;
   color: #888;
 }
 
-#ranking-top-age-current a:nth-child(1){
+#ranking-top-age-current a:nth-child(1) {
   margin-right: 15px;
 }
 
@@ -315,26 +286,28 @@ nav ul {
   border-radius: 1px;
   margin-bottom: 10px;
 }
-#btn-top10 button{
+#ranking-button-top10-20 button:last-child {
   color: red;
   background: #555;
   overflow: hidden;
 }
 
-#ranking-button-top10-20 button:hover {
-    color: red;
-    background: #555;
-    overflow: hidden;
-}
-#btn-top10, #btn-top20{
+/* #ranking-button-top10-20 button:hover {
+  color: red;
+  background: #555;
+  overflow: hidden;
+} */
+#btn-top10,
+#btn-top20 {
   margin: -3px;
 }
-/* #search-ranking:hover ul{
+#search-ranking:hover ul {
   display: inline-block;
-} */
+  z-index: 100;
+}
 #search-ranking ul {
-  /* display: none; */
-  display: inline-block;
+  display: none;
+  /* display: inline-block; */
   list-style: none;
   padding: 0;
   margin: 0;
@@ -343,10 +316,10 @@ nav ul {
   border: 1px solid #aaa;
   padding: 17px;
   background: #fff;
-  
+
   position: absolute;
-  /* top: -15px;
-  right: 0; */
+  top: -15px;
+  right: 0;
 }
 #rank-number {
   margin-top: -9px;
@@ -370,8 +343,8 @@ main {
 #main-first-block {
   display: inline-block;
   width: 100%;
-  
-  vertical-align: top;  /*  inline-block 세로간 벌어짐 간격 조정 */
+
+  vertical-align: top; /*  inline-block 세로간 벌어짐 간격 조정 */
 }
 
 #main-a1d {
@@ -392,6 +365,99 @@ main {
   margin-bottom: 8px;
 }
 
+#main-login .login-wrapper {
+  padding: 15px 25px;
+}
+
+#main-login .login-text {
+  color: #888;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+#main-login .login-wrapper a {
+  display: block;
+  margin-top: 12px;
+}
+
+#main-login .login-image {
+  background: url(./sp_login.png) 0 -47px no-repeat;
+  display: inline-block;
+  width: 280px;
+  height: 37px;
+}
+.sub_area {
+  display: inline-block;
+  width: 100%;
+  margin: 1px 8px 0 4px;
+  font-size: 12px;
+}
+.sub_area a {
+  text-decoration: none;
+  color: #505050;
+}
+.sub_area .lock_box {
+  float: left;
+  vertical-align: top;
+}
+.sub_area .lock_box a {
+  float: left;
+  vertical-align: top;
+  margin-right: 4px;
+}
+/* http://www.spritecow.com/ */
+.sub_area .lock_box:before {
+  float: left;
+  position: relative;
+  top: 10px;
+  left: -4px;
+  width: 10px;
+  height: 14px;
+  background-position: -408px -55px;
+  background-repeat: no-repeat;
+  background-size: 444px 439px;
+  vertical-align: top;
+  content: "";
+  margin: -1px 1px 1px;
+  background-image: url("./sp_main_57f073.png");
+}
+
+.sub_area .link_look + .link_look:before {
+  background-color: #d7dce0;
+  float: left;
+  position: relative;
+  top: 4px;
+  left: -1px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  vertical-align: top;
+  content: "";
+  margin: 0 5px 0 2px;
+  vertical-align: 3px;
+}
+
+.sub_area .link_join {
+  float: right;
+  color: #505050;
+}
+
+.sub_area .link_join:before {
+  float: left;
+  position: relative;
+  top: -1px;
+  left: 0px;
+  width: 11px;
+  height: 11px;
+  background-position: -239px -337px;
+  background-repeat: no-repeat;
+  background-size: 444px 439px;
+  vertical-align: top;
+  content: "";
+  margin: 2px 5px 0 0;
+  background-image: url("./sp_main_57f073.png");
+}
+
 #main-second-block {
   display: inline-block;
   vertical-align: top;
@@ -408,12 +474,22 @@ main {
   vertical-align: top;
 }
 
+#main-ytn h3,
+#main-newsstand h3 {
+  font-size: 14px;
+  font-family: NanumSquare, Dotum, "돋움", Helvetica, AppleSDGothicNeo,
+    sans-serif;
+  padding-top: 15px;
+  padding-left: 15px;
+  vertical-align: top;
+}
+
 #main-ytn {
   display: inline-block;
   width: 740px;
   height: 46px;
   background-color: #fff;
-  
+
   margin-bottom: 8px;
 }
 
@@ -496,11 +572,11 @@ main {
   margin-bottom: 8px;
 }
 
-#main-shopping iframe{
+#main-shopping iframe {
   width: 100%;
   height: 100%;
+  border: none;
 }
-
 
 #main-third-block,
 #main-fourth-block {
@@ -523,4 +599,122 @@ main {
   width: 330px;
   height: 130px;
   background-color: #555;
+}
+
+#main-category-top {
+  display: inline-block;
+  width: 100%;
+  border-bottom: 1px solid #ebeef3;
+}
+
+#subject-list,
+#subject-all,
+#subject-prev,
+#subject-next {
+  float: left;
+  height: 45px;
+  padding: 0;
+}
+
+#subject-list {
+  width: 603px;
+  position: relative;
+}
+
+#subject-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 45px;
+  width: 700px;
+}
+
+#subject-list li {
+  float: left;
+  margin-right: 10px;
+  padding: 14px 7px 0;
+  font-size: 14px;
+  font-family: NanumSquare, Dotum, "돋움", Helvetica, AppleSDGothicNeo,
+    sans-serif;
+}
+
+.opacity {
+  opacity: 0.5;
+  background: white;
+}
+
+.opacity.left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 45px;
+  width: 15px;
+}
+
+.opacity.right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 45px;
+  width: 15px;
+}
+
+#subject-list li.highlight {
+  border-bottom: 3px solid #00c73c;
+  color: #00b336;
+  font-weight: 700;
+  height: 45px;
+}
+
+#subject-all {
+  border-right: 1px solid #ebeef3;
+}
+
+#subject-all,
+#subject-prev,
+#subject-next {
+  position: relative;
+  width: 45px;
+  border: none;
+  border-left: 1px solid #ebeef3;
+  background: white;
+}
+
+#subject-all span:last-child {
+  position: absolute;
+  top: 15px;
+  left: 12px;
+  width: 20px;
+  height: 14px;
+  background-image: url(./sp_themecast.png);
+  background-repeat: no-repeat;
+  background-position: -218px -257px;
+}
+
+#subject-prev span:last-child {
+  position: absolute;
+  top: 15px;
+  left: 16px;
+  width: 8px;
+  height: 16px;
+  background-image: url(./sp_themecast.png);
+  background-repeat: no-repeat;
+  background-position: -320px 0;
+}
+
+#subject-next span:last-child {
+  position: absolute;
+  top: 15px;
+  left: 16px;
+  width: 8px;
+  height: 16px;
+  background-image: url(./sp_themecast.png);
+  background-repeat: no-repeat;
+  background-position: -320px -52px;
+}
+
+section {
+  border: 1px solid #dee3eb;
 }
